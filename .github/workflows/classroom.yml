@@ -3,12 +3,9 @@ name: GitHub Classroom Workflow
 on:
   push:
     branches: [ "**" ]
-<<<<<<< HEAD
     paths:
       - "operaciones.c"
       - "readme.md"
-=======
->>>>>>> origin/feature/conflicto-demo
 
 permissions:
   checks: write
