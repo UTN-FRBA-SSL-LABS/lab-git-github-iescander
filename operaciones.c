@@ -16,8 +16,7 @@ int restar(const int a, const int b) {
 /* ── multiplicar: producto─────────────────────── */
 
 int multiplicar(const int a, const int b) {
-    (void)a; (void)b;
-    return a * b; /* TODO: implementar */
+    return a * b; 
 }
 
 /* ── esPar: verificar si un número es par ───────────────────────────────────────────────── */
