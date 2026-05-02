@@ -1,5 +1,6 @@
 #include "operaciones.h"
 
+
 /* ── sumar: adición  ───────────────────────── */
 
 int sumar(const int a, const int b) {
@@ -23,4 +24,5 @@ int multiplicar(const int a, const int b) {
 
 int esPar(int n) {
     return (n % 2) == 0; /* version main */
+
 }
