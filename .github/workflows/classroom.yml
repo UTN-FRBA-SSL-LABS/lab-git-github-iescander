@@ -134,7 +134,6 @@ jobs:
           [ "$(gh pr view "$PR" --json reviews \
             --jq '[.reviews[] | select(.state == "APPROVED")] | length')" -gt 0 ]
 
-<<<<<<< HEAD
       # ── C15–C21. Preguntas conceptuales ───────────────────────────
 
       - name: "C15. P1: concepto de branches"
@@ -172,8 +171,6 @@ jobs:
         continue-on-error: true
         run: grep -q 'RESPUESTA_P7=c' readme.md
 
-=======
->>>>>>> origin/feature/conflicto-demo
       # ── Puntaje final ──────────────────────────────────────────────
 
       - name: Calcular puntaje
@@ -193,7 +190,6 @@ jobs:
           O_C12: ${{ steps.c12.outcome }}
           O_C13: ${{ steps.c13.outcome }}
           O_C14: ${{ steps.c14.outcome }}
-<<<<<<< HEAD
           O_C15: ${{ steps.c15.outcome }}
           O_C16: ${{ steps.c16.outcome }}
           O_C17: ${{ steps.c17.outcome }}
@@ -201,14 +197,11 @@ jobs:
           O_C19: ${{ steps.c19.outcome }}
           O_C20: ${{ steps.c20.outcome }}
           O_C21: ${{ steps.c21.outcome }}
-=======
->>>>>>> origin/feature/conflicto-demo
         run: |
           pts() { [ "$1" = "success" ] && echo "$2" || echo 0; }
           row() { [ "$2" = "success" ] && echo "| $1 | ✅ | $3 / $3 |" || echo "| $1 | ❌ | 0 / $3 |"; }
 
           SCORE=0
-<<<<<<< HEAD
           SCORE=$((SCORE + $(pts "$O_C1"   4)))
           SCORE=$((SCORE + $(pts "$O_C2"   4)))
           SCORE=$((SCORE + $(pts "$O_C3"   8)))
@@ -230,27 +223,10 @@ jobs:
           SCORE=$((SCORE + $(pts "$O_C19"  3)))
           SCORE=$((SCORE + $(pts "$O_C20"  3)))
           SCORE=$((SCORE + $(pts "$O_C21"  3)))
-=======
-          SCORE=$((SCORE + $(pts "$O_C1"   5)))
-          SCORE=$((SCORE + $(pts "$O_C2"   5)))
-          SCORE=$((SCORE + $(pts "$O_C3"  10)))
-          SCORE=$((SCORE + $(pts "$O_C4"  10)))
-          SCORE=$((SCORE + $(pts "$O_C5"  10)))
-          SCORE=$((SCORE + $(pts "$O_C6"  10)))
-          SCORE=$((SCORE + $(pts "$O_C7"  10)))
-          SCORE=$((SCORE + $(pts "$O_C8"   5)))
-          SCORE=$((SCORE + $(pts "$O_C9"   5)))
-          SCORE=$((SCORE + $(pts "$O_C10"  5)))
-          SCORE=$((SCORE + $(pts "$O_C11"  5)))
-          SCORE=$((SCORE + $(pts "$O_C12"  5)))
-          SCORE=$((SCORE + $(pts "$O_C13"  5)))
-          SCORE=$((SCORE + $(pts "$O_C14" 10)))
->>>>>>> origin/feature/conflicto-demo
 
           {
             echo "## Puntaje: $SCORE / 100"
             echo ""
-<<<<<<< HEAD
             echo "### Checks comportamentales"
             echo ""
             echo "| Test | Resultado | Puntos |"
@@ -281,24 +257,6 @@ jobs:
             row "C19. P5: commits atomicos"                         "$O_C19"  3
             row "C20. P6: fetch vs pull"                            "$O_C20"  3
             row "C21. P7: descripcion de PR"                        "$O_C21"  3
-=======
-            echo "| Test | Resultado | Puntos |"
-            echo "|------|:---------:|-------:|"
-            row "C1.  Proyecto compila"                             "$O_C1"   5
-            row "C2.  multiplicar implementada"                     "$O_C2"   5
-            row "C3.  multiplicar devuelve resultado correcto"      "$O_C3"  10
-            row "C4.  Commit wip: experimento roto existe"          "$O_C4"  10
-            row "C5.  Revert del experimento existe"                "$O_C5"  10
-            row "C6.  Sin conflict markers en operaciones.c"        "$O_C6"  10
-            row "C7.  esPar funciona correctamente"                 "$O_C7"  10
-            row "C8.  Ningun mensaje de commit vacio o muy corto"   "$O_C8"   5
-            row "C9.  Branch feature/mi-funcion fue creada"         "$O_C9"   5
-            row "C10. PR de feature/mi-funcion a main mergeado"     "$O_C10"  5
-            row "C11. Branch sugerencia/* fue creada"               "$O_C11"  5
-            row "C12. PR de sugerencia/* mergeado"                  "$O_C12"  5
-            row "C13. PR de sugerencia/* tiene al menos un review"  "$O_C13"  5
-            row "C14. PR de sugerencia/* aprobado por otro usuario" "$O_C14" 10
->>>>>>> origin/feature/conflicto-demo
           } >> "$GITHUB_STEP_SUMMARY"
 
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
